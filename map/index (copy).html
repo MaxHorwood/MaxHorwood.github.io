@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dive Site Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(63, 63, 63);
+        }
+        img {
+            width: 100%;
+        }
+        .hover-box {
+            position: absolute;
+            display: inline-block;
+            background-color: rgba(44, 44, 44, 0);
+            max-width: 1280px;
+        }
+        .hover-box .thumb {
+            width: 70%;
+            opacity: 0.6;
+            padding: 10px;
+            position: absolute;
+        }
+        .hover-box .content {
+            position: relative;
+            width:35vw;
+            visibility: hidden;
+            padding: 0.5em;
+            background-color: rgba(24, 24, 24, 0.7);
+        }
+        .hover-box:hover > .content {
+            visibility: visible;
+            z-index: 100;
+        }
+        .content h2 {
+            text-align: center;
+            color: white;
+            
+        }
+        .content p {
+            text-align: center;
+            color: white;   
+        }
+        #one {
+            width:18%;
+            height:15vw;
+            top:7vw;
+            left: 5vw;
+            /*z-index: 100;  Needs to overlap #two */
+        }
+        #two {
+            width:7%;
+            height:7vw;
+            top:11vw;
+            left:25vw;
+        }
+        #two .content{
+            left: -12vw;
+        }
+
+        #three {
+            width:2%;
+            height:1vw;
+            top:11vw;
+            left:43vw;
+        }
+        #three .content {
+            left: -15vw;
+        }
+        #four {
+            width:5%;
+            height:5vw;
+            top:13vw;
+            left:47vw;
+        }
+        #four .content {
+            left: -11vw;
+        }
+        #five {
+            width:4%;
+            height:3vw;
+            top:17vw;
+            left:65vw;
+        }
+        #five .content {
+            left: -13vw;
+        }
+        #six {
+            width:4%;
+            height:3vw;
+            top:32vw;
+            left:56vw;
+        }
+        #six .content {
+            left: -15vw;
+            top: -15vw;
+        }
+        #seven {
+            width: 10%;
+            height:15vw;
+            top:28vw;
+            left:84vw;
+        }
+        #seven .content {
+            left: -30vw;
+            top: -10vw;
+        }
+        #eight {
+            width: 10%;
+            height:12vw;
+            top:19vw;
+            left:70vw;
+            transform: rotate(35deg);
+        }
+        #eight .content {
+            left: -20vw;
+            transform: rotate(-35deg);
+        }
+        #nine {
+            width:2%;
+            height:3vw;
+            top:8vw;
+            left:32vw;
+        }
+        #nine .content{
+            left: -12vw;
+        }
+        #ten {
+            width:7%;
+            height:5vw;
+            top:0vw;
+            left:14vw;
+            background-color: rgba(255, 153, 0, 0.5);
+        }
+        #ten .content{
+            left: -5vw;
+        }
+        #easy {
+            width:4%;
+            height:4vw;
+            top:0vw;
+            left:25vw;
+            background-color: rgba(183, 0, 255, 0.5);
+        }
+        #easy .content{
+            left: -5vw;
+        }
+        #easy2 {
+            width: 4%;
+            height:5vw;
+            top:14vw;
+            left:74vw;
+            background-color: rgba(183, 0, 255, 0.5);
+        }
+        #easy2 .content {
+            left: -20vw;
+        }
+    </style>
+
+</head>
+<body>
+    <!--<h2 style="position:absolute;left:50%;">Bay to Lighthouse Map</h2>
+    --><img src="images/topdown.png">
+    <!-- Coral patch on left side -->
+    <div class="hover-box" id="one">
+        <img class="thumb" src="images/coral1_1.JPG">
+        <div class="content">
+            <img src="images/coral1_1.JPG">
+            <h2>Hella Nice Corals</h2>
+            <p>
+                Depth<br>
+                1m - 7m
+            </p>
+        </div>
+    </div>
+    <!-- Tires next to coral patch (above) -->
+    <div class="hover-box" id="two">
+        <img class="thumb" src="images/tires.JPG">
+        <div class="content">
+            <img src="images/tires.JPG">
+            <h2>Whealy Great Spot</h2>
+            <p>
+                Depth<br>
+                5m - 7m
+            </p>
+        </div>
+    </div>
+    <!-- Toilet -->
+    <div class="hover-box" id="three">
+        <div class="content">
+            <img src="images/toilet.JPG">
+            <h2>A Toilet</h2>
+            <p>
+                Depth<br>
+                6.5m
+            </p>
+        </div>
+    </div>
+    <!-- Playground -->
+    <div class="hover-box" id="four">
+        <img class="thumb" src="images/Playground.JPG">
+        <div class="content">
+            <img src="images/Playground.JPG">
+            <h2>Fun!</h2>
+            <p>
+                Depth<br>
+                9m<br>
+                <br>
+                A Playground to test your buoyancy.
+            </p>
+        </div>
+    </div>
+    <!-- Dahab Rocks -->
+    <div class="hover-box" id="five">
+        <div class="content">
+            <!--<img src="images/playground.JPG">-->
+            <h2>Dahab Rocks!!</h2>
+            <p>
+                Depth<br>
+                3m<br>
+                <br>
+                Just some rocks. (That spell Dahab)
+            </p>
+        </div>
+    </div>
+    <!-- Elephant -->
+    <div class="hover-box" id="six">
+        <img class="thumb" src="images/elephant.JPG">
+        <div class="content">
+            <img src="images/elephant.JPG">
+            <h2>Elephant</h2>
+            <p>
+                Depth<br>
+                26m<br>
+                <br>
+                You often get lots of Lionfish around the Elephant.
+            </p>
+        </div>
+    </div>
+    <!-- Reef Wall -->
+    <div class="hover-box" id="seven">
+        <img class="thumb" src="images/coral_wall.JPG">
+        <div class="content">
+            <img src="images/coral_wall.JPG">
+            <h2>Light House Shell Wall</h2>
+            <p>
+                Depth<br>
+                1m - 20m
+            </p>
+        </div>
+    </div>
+    <!-- Confined Area -->
+    <div class="hover-box" id="eight">
+        <div class="content">
+            <!--<img src="images/coral1_1.JPG">-->
+            <h2>Confined Swimming Area</h2>
+            <p>
+                Depth<br>
+                1m - 12m
+            </p>
+        </div>
+    </div>
+    <!-- Boat -->
+    <div class="hover-box" id="nine">
+        <div class="content">
+            <!--<img src="images/coral1_1.JPG">-->
+            <h2>Boat</h2>
+            <p>
+                Depth<br>
+                0m - Surface<br>
+                <br>
+                Get a few boats here.
+            </p>
+        </div>
+    </div>
+    <!-- Sea Dancer Beach -->
+    <div class="hover-box" id="ten">
+        <img class="thumb" src="images/beach.JPG">
+        <div class="content">
+            <img src="images/beach.JPG">
+            <h2>Sea Dancer Beach</h2>
+            <p>
+                Depth<br>
+                0m - Surface<br>
+                <br>
+                A Beach.
+            </p>
+        </div>
+    </div>
+    <!-- Easy Entry 1-->
+    <div class="hover-box" id="easy">
+        <img class="thumb" src="images/easy1.JPG">
+        <div class="content">
+            <img src="images/easy1.JPG">
+            <h2>Easy Entry #1</h2>
+            <p>
+                Depth<br>
+                0m - Surface<br>
+                <br>
+                Only a few steps from the sea.
+            </p>
+        </div>
+    </div>
+    <!-- Easy Entry 2-->
+    <div class="hover-box" id="easy2">
+        <div class="content">
+            <!--<img src="images/coral1_1.JPG">-->
+            <h2>Easy Entry #2</h2>
+            <p>
+                Depth<br>
+                0m - Surface<br>
+                <br>
+                Only a few steps from the sea.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(63, 63, 63);
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        img {
+            width: 100%;
+        }
+
+        .poi {
+            position: absolute;
+            display: inline-block;
+            background-color:rgba(0, 0, 0, 0.4);
+            max-width: 1000px;
+            text-align: center;
+            color:white;
+            font-size: 20pt;    
+        }
+        .poi p {
+            display: none;
+            white-space: nowrap;
+            top: -1%;
+            margin:0;
+            padding: 0;
+        }
+        .poi span {
+            color: red;
+            font-size: 24pt;
+            position:absolute;
+            padding: 10px;
+        }
+        .poi .opened {
+            position: relative;
+            width: 20vw;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            display:none;
+        }
+        .poi:hover > .opened {
+            display:block;
+            z-index: 100;
+        }
+
+        .coral_1 {
+            /* Position */
+            left: 0vw;
+            top: 15vw;
+            width: 20vw;
+            height: 5vw;
+            transform: rotate(-15deg);
+        }
+        .coral_1 .opened {
+            transform: rotate(15deg);
+        }
+        .coral_2 {
+            left: 21vw;
+            top: 17vw;
+            width: 2vw;
+            height: 5vw;
+        }
+        .tires {
+            width:7%;
+            height:7vw;
+            top:19vw;
+            left:25vw;
+        }
+        .toilet {
+            width:2%;
+            height:2vw;
+            top:17vw;
+            left:42vw;
+        }
+        .playground {
+            width: 7%;
+            height:8vw;
+            top:20vw;
+            left:44vw;
+        }
+
+
+        /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #3d3d3dbe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+    </style>
+    
+</head>
+<body>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="images/beach.JPG">
+            <h3 id="modalTitle">Heading</h3>
+            <p id="modalDesc">Some text in the Modal..</p>
+        </div>
+        
+    </div>
+    <img src="images/Final_map_edited.png">
+
+    <div class="poi coral_1" id="coral_1" onclick="showModal('Coral Patch #1', 'coral1', '1m - 3m')">
+        <p>Coral Patch #1</p>
+    </div>
+    <div class="poi coral_2" id="coral_2" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Coral Patch #2</p>
+    </div>
+    <div class="poi tires" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Tires</p>
+    </div>
+    <div class="poi toilet" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Toilet</p>
+    </div>
+    <div class="poi playground" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Playground</p>
+    </div>
+    <div class="poi statue" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Statue</p>
+    </div>
+    <div class="poi dahabrocks" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Dahab Rocks</p>
+    </div>
+
+    <div class="poi confined" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Confined Swimming</p>
+    </div>
+    <div class="poi elephant" onclick="showModal('Coral Patch #2', 'coral_pin', '2m - 6m')">
+        <p>Elephant</p>
+    </div>
+    
+
+    <script>
+
+        var modal      = document.getElementById("myModal");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalImg   = document.getElementById("modalImage");
+        var modalDesc  = document.getElementById("modalDesc");
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }        
+
+        function showModal(title, image_name, depth_data){
+            console.log(title, image_name, depth_data);
+            modalTitle.innerHTML = title;
+            modalImg.src = "images/"+image_name+".JPG";
+            modalDesc.innerHTML = "Depth: "+depth_data;
+            modal.style.display = "block";
+        }
+        
+        window.onload = function() {/*
+            var poi = document.getElementsByClassName("poi");
+            for (var i = 0; i < poi.length; i++){
+                poi[i].onclick = function() {
+                    console.log(this.children);
+                    var x = this.children[1];
+                    
+                    x.style.display = "block";
+                    
+                    
+                    
+                }
+                poi[i].children[1].getElementsByTagName("span")[0].onclick = function(){
+                    console.log(this.parentElement);
+                    this.parentElement.style.display = "none";
+                }
+            }
+            console.log(poi);*/
+        }
+    </script>
+</body>
+</html>

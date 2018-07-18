@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dive Site Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 101; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 150%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            /*background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            animation: animatetop 0.2s;
+            -webkit-animation: animatetop 0.2s;
+        }
+        /* Add Animation */
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+        @-webkit-keyframes animatetop {
+            from {top:-300px; opacity:0} 
+            to {top:0; opacity:1}
+        }
+        .close {
+            float:right;
+            padding: 5px 15px;
+            font-size: 24pt;
+            position:absolute;
+            transition: 0.2s;
+        }
+        .close:hover {
+            background-color: rgb(172, 44, 44);
+            color:white;
+        }
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #3d3d3dda;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 10px;
+            text-align: center;
+            font-size: 15pt;
+            border: 1px solid #888;
+            width: 50%; /* Could be more or less, depending on screen size */
+            color: white;
+        }
+        body {
+            margin: 0;
+            background-color: rgb(63, 63, 63);
+        }
+        img {
+            width: 100%;
+        }
+        .hover-box {
+            position: absolute;
+            display: inline-block;
+            background-color: rgba(44, 44, 44, 0);
+            max-width: 1280px;
+            cursor: pointer;
+        }
+        .hover-box .thumb {
+            width: 70%;
+            opacity: 0;
+            padding: 10px;
+            position: absolute;
+        }
+        .hover-box .content {
+            position: relative;
+            width:35vw;
+            visibility: hidden;
+            padding: 0.5em;
+            background-color: rgba(24, 24, 24, 0.7);
+        }
+        .hover-box h2 {
+            white-space: nowrap;
+            visibility: hidden;
+            z-index: 200;
+            color: black;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size:3vw;
+            position: relative;
+            width: 0;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .hover-box:hover > h2 {
+            visibility: visible;
+            z-index: 100;
+        }
+        .hover-box:hover {
+            background-color: rgba(44, 44, 44, 0.4);
+        }
+        .content p {
+            text-align: center;
+            color: white;   
+        }
+        #one {
+            width:20vw;
+            height:8vw;
+            top:15vw;
+            left: 1vw;
+            /*z-index: 100;  Needs to overlap #two */
+        }
+        #coral_2 {
+            left: 21vw;
+            top: 17vw;
+            width: 2vw;
+            height: 5vw;
+        }
+        #two {
+            width:7%;
+            height:7vw;
+            top:19vw;
+            left:25vw;
+        }
+        #two .content{
+            left: -12vw;
+        }
+
+        #three {
+            width:2%;
+            height:2vw;
+            top:17vw;
+            left:42vw;
+        }
+        #three .content {
+            left: -15vw;
+        }
+        #four {
+            width: 7%;
+            height:8vw;
+            top:20vw;
+            left:44vw;
+        }
+        #four .content {
+            left: -11vw;
+        }
+        #five {
+            width:4%;
+            height:3vw;
+            top:22vw;
+            left:63vw;
+        }
+        #five .content {
+            left: -13vw;
+        }
+        #six {
+            width:5%;
+            height:5vw;
+            top:38vw;
+            left:62vw;
+        }
+        #six .content {
+            left: -15vw;
+            top: -15vw;
+        }
+        #seven {
+            width: 10%;
+            height:10vw;
+            right:10vw;
+            top:50vw;
+        }
+        #seven .content {
+            left: -30vw;
+            top: -10vw;
+        }
+        #eight {
+            width: 17%;
+            height:10vw;
+            top:24vw;
+            left:67vw;
+            transform: rotate(35deg);
+        }
+        #eight .content {
+            left: -20vw;
+            transform: rotate(-35deg);
+        }
+        #nine {
+            width:2%;
+            height:3vw;
+            top:15vw;
+            left:33vw;
+        }
+        #nine .content{
+            left: -12vw;
+        }
+        #ten {
+            width:7%;
+            height:5vw;
+            top:8vw;
+            left:12vw;
+        }
+        #ten .content{
+            left: -5vw;
+        }
+        #easy {
+            width:4%;
+            height:4vw;
+            top:6vw;
+            left:22vw;
+        }
+        #easy .content{
+            left: -5vw;
+        }
+        #easy2 {
+            width: 4%;
+            height:5vw;
+            top:21vw;
+            left:78vw;
+        }
+        #easy2 .content {
+            left: -20vw;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" alt="No Image" src="images/beach.JPG">
+            <h3 id="modalTitle">Heading</h3>
+            <p id="modalDesc">Some text in the Modal..</p>
+        </div>
+    </div>
+    <!--<h2 style="position:absolute;left:50%;">Bay to Lighthouse Map</h2>
+    --><img src="images/Final_map_edited.png">
+    <!-- Coral patch on left side -->
+    <div class="hover-box" id="one" onclick="showModal('Coral Patch #1', 'coral1', '1m - 3m')">
+        <img class="thumb" src="images/coral1_1.JPG">
+        <h2>Coral Patch #1</h2>
+    </div>
+    <!-- Coral Pin-->
+    <div class="hover-box" id="coral_2" onclick="showModal('Coral Patch #2', 'coral1', '2m - 6m')">
+        <img class="thumb" src="images/coral1.JPG">
+        <h2>Coral Patch #2</h2>
+    </div>
+    <!-- Tires next to coral patch (above) -->
+    <div class="hover-box" id="two" onclick="showModal('Tires', 'tires', '5m - 8m')">
+        <img class="thumb" src="images/tires.JPG">
+        <h2>Tires</h2>
+    </div>
+    <!-- Toilet -->
+    <div class="hover-box" id="three" onclick="showModal('A Toilet', 'toilet', '6m')">
+        <h2>A Toilet</h2>
+    </div>
+    <!-- Playground -->
+    <div class="hover-box" id="four" onclick="showModal('Playground', 'Playground', '9m')">
+        <img class="thumb" src="images/Playground.JPG">
+        <h2>Playground</h2>
+    </div>
+    <!-- Dahab Rocks -->
+    <div class="hover-box" id="five" onclick="showModal('Dahab Rocks', '', '4m')">
+        <h2>Dahab Rocks</h2>
+    </div>
+    <!-- Elephant -->
+    <div class="hover-box" id="six" onclick="showModal('Elephant', 'elephant', '23m - 26m')">
+        <img class="thumb" src="images/elephant.JPG">
+        <h2>Elephant</h2>
+    </div>
+    <!-- Reef Wall -->
+    <div class="hover-box" id="seven" onclick="showModal('Coral Shell Wall', 'coral_wall', '1m - 20m')">
+        <img class="thumb" src="images/coral_wall.JPG">
+        <h2>Coral Shell Wall</h2>
+    </div>
+    <!-- Confined Area -->
+    <div class="hover-box" id="eight" onclick="showModal('Confined Swimming Area', '', '0m - Surface')">
+        <h2>Confined Swimming</h2>
+    </div>
+    <!-- Boat -->
+    <div class="hover-box" id="nine" onclick="showModal('Boat', '', '0m - Surface')">
+        <h2>Boat</h2>
+    </div>
+    <!-- Sea Dancer Beach -->
+    <div class="hover-box" id="ten" onclick="showModal('Sea Dancer Beach', 'beach', '0m - Surface')">
+        <img class="thumb" src="images/beach.JPG">
+        <h2>Sea Dancer Beach</h2>  
+    </div>
+    <!-- Easy Entry 1-->
+    <div class="hover-box" id="easy" onclick="showModal('Easy Entry #1', 'easy1', '0m - Surface')">
+        <img class="thumb" src="images/easy1.JPG">
+        <h2>Easy Entry #1</h2>
+    </div>
+    <!-- Easy Entry 2-->
+    <div class="hover-box" id="easy2" onclick="showModal('Easy Entry #2', 'coral1', '0m - Surface')">
+        <h2>Easy Entry #2</h2>
+    </div>
+    <script>
+        var modal      = document.getElementById("myModal");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalImg   = document.getElementById("modalImage");
+        var modalDesc  = document.getElementById("modalDesc");
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }        
+
+        function showModal(title, image_name, depth_data){
+            console.log(title, image_name, depth_data);
+            modalTitle.innerHTML = title;
+            if (image_name){
+                modalImg.src = "images/"+image_name+".JPG";
+            }else{
+                modalImg.src = "";
+            }
+            modalDesc.innerHTML = "Depth: "+depth_data;
+            modal.style.display = "block";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
