@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Bannerfish Bay Map</title>
     <style>
         /* The Modal (background) */
         .modal {
@@ -31,13 +31,15 @@
             to {top:0; opacity:1}
         }
         .close {
-            float:right;
-            padding: 5px 15px;
+            top:10px;
             font-size: 24pt;
-            position:absolute;
+            text-align: left;
+            float: left;
             transition: 0.2s;
             z-index: 100;
             cursor: pointer;
+            padding:5px 15px;
+            position: absolute;
         }
         .close:hover {
             background-color: rgb(172, 44, 44);
@@ -61,6 +63,7 @@
         }
         body {
             margin:0;
+            overflow: hidden;
         }
         img {
             position: absolute;
@@ -78,53 +81,46 @@
             width:100%;
             display:none;
         }
-        .hover:hover + #poi_name {
+        .hover:hover + #poi {
             color:green;
         }
 
-        #poi_name {
+        #poi {
             display: none;
             z-index: 120;
-            font-size: 24pt;
+            font-size: 3vh;
             color:white;
             position: absolute;
             text-align: center;
             width:100%;
-            bottom:0;
+            top:85%;
             background-color:rgba(0, 0, 0, 0.6);
-            padding: 0.5em 0;
+            padding: .5em;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: 0.4s;
+            height:100vh;
         }
-        #coral_1 {
-            top: 13.5vw;
-            width:21vw;
-            height:11vw;
-        }
-        #coral_2 {
-            top: 17vw;
-            left:21vw;
-            width:2.5vw;
-            height:5vw;
-        }
-        #beach {
-            top: 7vw;
-            left:12vw;
-            width:11vw;
-            height:7vw;
-        }
+        
     </style>
 </head>
-<body>
+<body><!--
     <div id="myModal" class="modal">
-        <!-- Modal content -->
+        <-- Modal content 
         <div class="modal-content">
             <span class="close">&times;</span>
             <img id="modalImage" alt="No Image" src="images/beach.JPG">
             <h3 id="modalTitle">Heading</h3>
             <p id="modalDesc">Some text in the Modal..</p>
         </div>
-    </div>
+    </div>-->
     <img style="width:100%;" src="images/Final_map_edited.png">
-    <h1 id="poi_name"></h1>
+    <div id="poi">
+        <span class="close">&times;</span>
+        <h1 id="poi_title"></h1>
+        <img id="poi_image" style="width:60%;position: relative;" alt="No Image" src="images/beach.JPG">
+        <p id="poi_desc">Some text in the Modal..</p>
+    </div>
 <!--
     <a class="hover" id="coral_1" onmouseover="change_text('Coral Patch #1')" onmouseout="remove_text()"></a>
     <img id="test" class="overlay_image" src="images_overlay/coral_1.png">
@@ -138,37 +134,50 @@
     <div id="wrapper">
 
     </div>
-    <script>
-        var modal      = document.getElementById("myModal");
-        var modalTitle = document.getElementById("modalTitle");
-        var modalImg   = document.getElementById("modalImage");
-        var modalDesc  = document.getElementById("modalDesc");
+    <script>var isOpen = false;
+        var modal      = document.getElementById("poi");
+        modal.onclick = function () {
+            
+            console.log("test", isOpen);
+            if (!isOpen){
+                modal.style.top = "0";
+                isOpen = true;
+                span.style.display = "block";
+            }
+        }
 
         var span = document.getElementsByClassName("close")[0];
         span.onclick = function() {
-            modal.style.display = "none";
+            document.getElementById("poi").style.display = "none";
+            var x = document.getElementById("poi");
+            x.style.top = "85%";
+            span.style.display = "none";
         }        
-
+        
         function showModal(title, image_name, depth_data){
-            console.log(title, image_name, depth_data);
-            modalTitle.innerHTML = title;
-            if (image_name){
-                modalImg.src = "images/"+image_name;
-            }else{
-                modalImg.src = "";
-            }
-            modalDesc.innerHTML = "Depth: "+depth_data;
-            modal.style.display = "block";
+            isOpen = true;
+            
+            var x = document.getElementById("poi");
+            x.style.top = "0";
+            span.style.display = "block";
+            document.getElementById("poi_title").innerHTML = title;
+            document.getElementById("poi_image").src = "images/"+image_name;
+            document.getElementById("poi_desc").innerHTML = "Depth: "+depth_data;
         }
-
+        
         function change_text(text){
-            var x = document.getElementById("poi_name");
-            x.innerHTML = text;
+            var x = document.getElementById("poi");
+            x.style.top = "85%";
+            var title = document.getElementById("poi_title");
+            title.innerHTML = text;
             x.style.display = "block";
+            isOpen = false;
         }
         function remove_text(){
-            var x = document.getElementById("poi_name");
-            x.style.display = "none";
+            if (!isOpen){
+                document.getElementById("poi").style.display = "none";
+                isOpen = true;
+            }
         }
 
         var data = [
