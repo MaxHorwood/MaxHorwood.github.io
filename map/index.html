@@ -114,7 +114,7 @@
             <p id="modalDesc">Some text in the Modal..</p>
         </div>
     </div>-->
-    <img style="width:100%;" src="images/Final_map_edited.png">
+    
     <div id="poi">
         <span class="close">&times;</span>
         <h1 id="poi_title"></h1>
@@ -132,7 +132,7 @@
     <img id="test" class="overlay_image" src="images_overlay/beach.png">
 -->
     <div id="wrapper">
-
+        <img style="width:100%;" src="images/Final_map_edited.png">
     </div>
     <script>var isOpen = false;
         var modal      = document.getElementById("poi");
@@ -160,16 +160,17 @@
             var x = document.getElementById("poi");
             x.style.top = "0";
             span.style.display = "block";
-            document.getElementById("poi_title").innerHTML = title;
-            document.getElementById("poi_image").src = "images/"+image_name;
+            //document.getElementById("poi_title").innerHTML = title;
+            //document.getElementById("poi_image").src = "images/"+image_name;
             document.getElementById("poi_desc").innerHTML = "Depth: "+depth_data;
         }
         
-        function change_text(text){
+        function change_text(text, image_name){
             var x = document.getElementById("poi");
             x.style.top = "85%";
             var title = document.getElementById("poi_title");
             title.innerHTML = text;
+            document.getElementById("poi_image").src = "images/"+image_name;
             x.style.display = "block";
             isOpen = false;
         }
@@ -187,10 +188,13 @@
             {"name":"Tires", "image":"tires.png", "item_image":"tires.JPG", "style":{"top":19, "left":25, "w":7, "h":7}, "depth":"5m - 8m" },
             {"name":"A Toilet", "image":"toilet.png", "item_image":"toilet.JPG", "style":{"top":17, "left":42, "w":2, "h":2}, "depth":"6m" },
             {"name":"Playground", "image":"playground.png", "item_image":"playground.JPG", "style":{"top":20, "left":44, "w":7, "h":8}, "depth":"8m - 9m" },
+            {"name":"Statue", "image":"statue.png", "item_image":"statue.JPG", "style":{"top":26.5, "left":51.5, "w":2, "h":2}, "depth":"10m" },
+            {"name":"Dahab Rocks", "image":"dahab_rocks.png", "item_image":"dahab_rocks.JPG", "style":{"top":23, "left":63, "w":4, "h":2}, "depth":"4m" },
             {"name":"Elephant", "image":"elephant.png", "item_image":"elephant.JPG", "style":{"top":38, "left":62, "w":5, "h":5}, "depth":"26m" },
             {"name":"Coral Patch #3", "image":"coral_3.png", "item_image":"coral_wall.JPG", "style":{"top":47, "left":90, "w":10, "h":10}, "depth":"1m - 20m" },
             {"name":"Easy #1", "image":"easy1.png", "item_image":"easy1.JPG", "style":{"top":6, "left":22, "w":4, "h":4}, "depth":"Surface" },
             {"name":"Easy #2", "image":"easy2.png", "item_image":"easy2.JPG", "style":{"top":21, "left":78, "w":4, "h":5}, "depth":"Surface" }
+            
         ]
 
         window.onload = function() {
@@ -211,7 +215,7 @@
                 x.style.height = data[i]["style"]["h"]+"vw";
 
                 // Only way that it will work
-                x.setAttribute('onmouseover', "change_text('"+data[i]["name"]+"')");
+                x.setAttribute('onmouseover', "change_text('"+data[i]["name"]+"','"+data[i]["item_image"]+"')");
                 x.setAttribute('onmouseleave', "remove_text()");
                 x.setAttribute('onclick', "showModal('"+data[i]["name"]+"','"+ data[i]["item_image"]+"','"+data[i]["depth"]+"')");
 
