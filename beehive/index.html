@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container card" style="padding: 16px">
+        <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Text input" id="name">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Candidate Profile</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Text input" id="candidate_profile">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Location (seperate with space)</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Location input" id="location">
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="field">
+            <label class="label">Languages (seperate with space)</label>
+            <div class="control" id="languages_control">
+                <input id="language" class="input languages_thing" type="text" placeholder="Location input">
+            </div>
+            <!-- <button onclick="add_language()" class="button is-primary is-light">Add</button> -->
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    Driver?
+                    <input type="checkbox" id="is_driver">
+                </label>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    DBS Check?
+                    <input type="checkbox" id="dbs_check">
+                </label>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    First Aid?
+                    <input type="checkbox" id="first_aid_cert">
+                </label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Education & Qualifications</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="Textarea" id="eandq"></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Employment History</label>
+            <div class="control" id="history_data">
+                <div class="card history_fields"
+                    style="margin-bottom: 10px; padding: 16px; background-color: rgba(0, 0, 0, 0.1);">
+                    <button onclick="delete_history(this.parentElement)">X</button>
+
+                    <div style="display:flex">
+                        <div class="field" style="width:50%">
+                            <label class="label">Date</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Text input" id="date">
+                            </div>
+                        </div>
+                        <div class="field" style="width:50%">
+                            <label class="label">Overview (seperate with space)</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Text input" id="overview">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Description</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Textarea" id="description"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="add_another()" class="button is-primary is-light">Add</button>
+        </div>
+        <div class="field">
+            <label class="label">Hobbies (seperate with space)</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Hobbies input" id="hobbies">
+            </div>
+        </div>
+        <div class="file has-name is-fullwidth">
+            <label class="file-label">
+                <input class="file-input" type="file" name="resume" id="file-input-photo">
+                <span class="file-cta">
+                    <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                        Profile Picture Choose a file…
+                    </span>
+                </span>
+                <span class="file-name">
+                </span>
+            </label>
+        </div>
+        
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" onclick="generate()">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="dummy"></div>
+</body>
+
+</html>
